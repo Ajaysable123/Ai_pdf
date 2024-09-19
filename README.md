@@ -2,7 +2,7 @@ Below is an example of a `README.md` file that outlines how to set up and run th
 
 ---
 
-# **My Project - API Integration and Embeddings with Pinecone and OpenAI**
+# **My Project - RAG intergrated with slack**
 
 This project demonstrates how to integrate with the Pinecone and OpenAI APIs to extract, chunk, and embed text data, followed by storing and querying data in a Pinecone vector database.
 
