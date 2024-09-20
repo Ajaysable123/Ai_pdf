@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Processing Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #loading {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            text-align: center;
+            padding-top: 20%;
+            font-size: 24px;
+            color: #333;
+        }
+        .data-table {
+            max-height: 300px; /* Set a maximum height for the table */
+            overflow-y: auto;  /* Enable vertical scrolling */
+            font-size: 14px;   /* Adjust the font size */
+        }
+        th, td {
+            padding: 10px; /* Add some padding for better readability */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">PDF Processing Results</h1>
+    <h3 class="mt-4">Chunks and Embeddings</h3>
+    <div class="data-table">
+        {% for table in tables %}
+            <div class="table-responsive">
+                {{ table|safe }}
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('upload_file') }}" class="btn btn-primary mt-4">Upload Another PDF</a>
+</div>
+
+<div id="loading">Processing file, please wait...</div>
+
+<script>
+    function showLoading() {
+        document.getElementById('loading').style.display = 'block';
+    }
+</script>
+</body>
+</html>
